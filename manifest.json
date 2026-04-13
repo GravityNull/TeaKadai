@@ -1,38 +1,25 @@
-{
+﻿{
   "name": "Tamil Flash News & Updates",
-  "short_name": "GravityNull TeaKadai",
+  "short_name": "TeaKadai",
   "lang": "en-US",
-
-  "display": "standalone",
-  "description" : "Tamil flash news updates",
-  "prompt_message": "Tamil flash news updates",
-
-  
+  "description": "Tamil flash news updates",
   "start_url": "/?utm_source=a2hs",
-  "background_color": "white",
+  "scope": "/",
   "display": "standalone",
-  "scope": "/maps/",
-  "theme_color": "black",  
-  
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2Ftk%20bold.png?v=1559654363815",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2Ftk%20bold.png?v=1559654363815",
-      "sizes": "384x384",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2Ftk%20bold.png?v=1559654363815",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
-
-
-
-

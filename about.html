@@ -1,263 +1,126 @@
-<html ⚡>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="About GravityNull TeaKadai – Tamil flash news updates">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<!-- COMMON TAGS -->
-<meta charset="utf-8">
-<title>GravityNull TeaKadai</title> 
-<link rel="manifest" href="/manifest.json">
-<script src="/script.js" defer></script>  
-  
-<meta content='982534371769485' property='fb:pages'/>
+  <!-- Open Graph -->
+  <meta property="og:url"         content="/about.html">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="About – GravityNull TeaKadai">
+  <meta property="og:description" content="Tamil flash news updates">
+  <meta property="og:image"       content="https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2F74472198_2551181041647267_9167069512434974720_o.jpg">
+  <meta property="fb:pages"       content="982534371769485">
+  <meta property="fb:app_id"      content="2139248996379882">
 
-<meta content='2139248996379882' property='fb:app_id'/>
-  
-<meta name="mobile-web-app-capable" content="yes" display="standalone">
-  
-<meta property="og:url" content="/about" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="GravityNull TeaKadai" />
-<meta property="og:description" content="Tamil flash news updates" />
-<meta property="og:image" content="https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2F74472198_2551181041647267_9167069512434974720_o.jpg" />
-<link rel="canonical" href="/about"> 
+  <title>About – GravityNull TeaKadai</title>
 
-<!-- Schema.org for Google-->
-<meta content="notranslate" name="google" />
-<meta content="black" name="theme-color" />
-<meta content="yes" name="mobile-web-app-capable" />
-<meta content="width=device-width" name="viewport" />
-<meta content="yes" name="mobile-web-app-capable" />
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
-<meta content="standalone" name="display" />
-<meta content="width" name="MobileOptimized" />
-<meta property="display" content="standalone">
+  <link rel="canonical" href="/about.html">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon"          href="https://ik.imagekit.io/pdmwfs9ocxywc/tk_bold_BJBVbzH8V.png">
+  <link rel="shortcut icon" href="https://ik.imagekit.io/pdmwfs9ocxywc/tk_bold_BJBVbzH8V.png">
 
-<link rel="canonical" href="/about">
-<link rel="stylesheet" href="/style.css">
-<link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/style.css">
 
-  
-  
+  <!-- TruePush notifications -->
+  <script async src="https://sdki.truepush.com/sdk/v2.0.2/app.js"></script>
+  <script>
+    var truepush = window.truepush || [];
+    truepush.push(function () {
+      truepush.Init({ id: '5f1557af613a32b6f3ffb79c' }, function (error) {
+        if (error) console.error(error);
+      });
+    });
+  </script>
 
+  <!-- AddToAny -->
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+</head>
+<body>
 
-   
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://ik.imagekit.io/pdmwfs9ocxywc/tk_bold_BJBVbzH8V.png" rel='icon' />
-<link rel="shortcut icon" href="https://ik.imagekit.io/pdmwfs9ocxywc/tk_bold_BJBVbzH8V.png">   
-  
-  
-<div class="a2a_kit a2a_kit_size_25 a2a_floating_style a2a_vertical_style" style="right:0px; bottom:100px;">
+  <!-- ===== Fixed Top Bar ===== -->
+  <button id="myBtnn" onclick="openNav()" aria-label="Open menu">
+    <i class="material-icons" aria-hidden="true">menu</i>
+    <img src="https://ik.imagekit.io/pdmwfs9ocxywc/tk_bold_BJBVbzH8V.png"
+         alt="TeaKadai" width="22" height="22" loading="lazy">
+  </button>
+
+  <div class="logo" role="banner">
+    <strong>TeaKadai News by GravityNull</strong>
+  </div>
+
+  <a href="/" aria-label="Home">
+    <button id="myBtn" title="Home">
+      <i class="material-icons" aria-hidden="true">home</i>
+    </button>
+  </a>
+
+  <!-- ===== Ribbon ===== -->
+  <div class="ribbon" role="complementary">
+    <button class="accordion" aria-expanded="false">
+      Support our cartoon works, just at &#8377;25/&#8209;
+    </button>
+    <div class="panel">
+      <a href="/cartoons" target="_self">
+        <img src="https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2F74472198_2551181041647267_9167069512434974720_o.jpg?v=1573545099903"
+             alt="GravityNull Cartoons" loading="lazy">
+      </a>
+      <div style="text-align:center; padding:8px 0 4px;">
+        <a href="/cartoons" class="contact" target="_self">
+          <strong>Order Now :D</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Side Navigation ===== -->
+  <nav id="mySidenav" class="sidenav" aria-label="Side menu">
+    <button class="closebtn1" onclick="closeNav()" aria-label="Close menu">&times;</button>
+    <div class="alert">
+      <embed src="/sidenav.html" width="100%" style="border:none; display:block; min-height:90vh;" title="Side navigation">
+    </div>
+  </nav>
+
+  <!-- ===== Bottom Nav ===== -->
+  <div class="header" role="navigation" aria-label="Page navigation">
+    <a href="javascript:history.back()" aria-label="Go back">
+      <button id="PrevBtn"><i class="material-icons" aria-hidden="true">arrow_back</i></button>
+    </a>
+    <div class="title">About GravityNull TeaKadai</div>
+    <a href="/" aria-label="Home">
+      <button id="NxtBtn" title="Home"><i class="material-icons" aria-hidden="true">home</i></button>
+    </a>
+  </div>
+
+  <!-- ===== Main Content ===== -->
+  <main class="content" style="margin-top:60px;">
+    <iframe src="/about/us.html"
+            width="100%"
+            style="border:none; min-height:1025px; display:block;"
+            title="About GravityNull TeaKadai"
+            loading="lazy">
+    </iframe>
+  </main>
+
+  <!-- AddToAny share widget -->
+  <div class="a2a_kit a2a_kit_size_25 a2a_floating_style a2a_vertical_style" style="right:0;bottom:100px;">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>
     <a class="a2a_button_whatsapp"></a>
     <a class="a2a_button_telegram"></a>
-    <a class="a2a_button_facebook_messenger"></a>
     <a class="a2a_button_copy_link"></a>
     <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-</div>
+  </div>
 
-<script async src="https://static.addtoany.com/menu/page.js"></script>
-
-  
-  
-  <script type="application/javascript" src="https://sdki.truepush.com/sdk/v2.0.2/app.js" async></script>
-    <script>
-    var truepush = window.truepush || [];
-            
-    truepush.push(function(){
-        truepush.Init({
-            id: "5f1557af613a32b6f3ffb79c"
-        },function(error){
-          if(error) console.error(error);
-        })
-    })
-    </script>
-  
-  
-  
-  
-</head>
-<body>
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-
-<a href="/search.html">
-<button id="ptBtn"  title="Search"> 
-<b><i class="material-icons"> search </i></b>
-</button>
- </a>
-	
-	
-<button id="myBtnn" onclick="openNav()"> <i class="material-icons">
-<m> menu </m>
-</i>
-<img src="https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2Ftk%20bold.png" style="width:25px;" alt="TeaKadai">
-</button>
-<div>
-<button class="logo">
-<left> 
-
-<b> TeaKadai News by GravityNull</b>
-</center>
-</button>
-</div> </br>
-
-
-
-<button onclick="topFunction()"  id="myBtn" title="Go to top"> 
-<i class="material-icons"> restore </i>                                 
-</i>
-</button>
-  
-
-
-
-
-  
-<!-- ribbon starts here -->
-<b>
-<h3 class="ribbon">
-<strong class="ribbon-content">
-
-<br> 
-  
-<h2 class="accordion">
-<b>  Support our cartoon works, just at ₹25/- </b> 
-</h2>
-  
-<div class="panel">
-
-<picture>
-<source media="(min-width: 90%)">
-<a href="/cartoons" target="_top">
-<img src="https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2F74472198_2551181041647267_9167069512434974720_o.jpg?v=1573545099903" alt="GravityNull Cartoons" style="width:99%;"> 
-</a> <br>
-<h3>
-<a href="/cartoons" target="_top">  
-<button class="contact">
-<b>
-
-  
-
-<center>  
-
-order now :D
-
-</button>
-</a></h3>
-
-</div>
-</strong>
-</h1>
-<!-- ribbon starts here -->
-
-
-  
-
-  
-
-<div id="mySidenav" class="sidenav"> <a href="javascript:void(0)" class="closebtn1" onclick="closeNav()">&times;
-</a>
-<div class="alert"> <span class="closebtn">
-<left>
-
-  
-
- 
-<center>
-
-  
-
-<div>
-<embed src="/sidenav.html" width="357px" height="112%" frameborder="0" allowTransparency="true" scrolling="yes" scrollbar="no">
-</div> 
-
-<br>
-
-
-
-  
-</head>
-<body>
-</center>
-<br>               
-</center>
-<br>               
-</div>               
-
-
-
-</center>
-</centre>
-</span>
-</div>
-</div>
-</div>
-<body bgcolor="white">
-<div class="header">
-
-
-
-                   
-
-                   
-                   
-                   
-                   
-
-<a href="javascript:history.back()">                        
-<button id="PrevBtn"> <i class="material-icons">
-arrow_left
-</i>  </a>
-</button>
-
-                                               
-                                            
-  
-<div>
-<button class="title">
-<left> 
-<b> About GravityNull TeaKadai </b>
-</center>
-</button>
-</div>
-  
-
-
-<a href="/index.html">  
-<button id="NxtBtn" title="Next"> 
-<i class="material-icons"> home </i></button></i></a>
-</button>
-                               
-
-<div class="scroll">
-
-
-<b id="defaultOpen"> 
-</div>                        
-
-</div>          
-
-
-</div>
-</div>
-
-
-<center>
-<br><br> <br><br>  
-<embed src="/about/us.html" width="350px" height="1025px">
-</center>
-
-
-
-    
-</body>   
+  <script src="/script.js" defer></script>
+</body>
 </html>

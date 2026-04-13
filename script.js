@@ -1,274 +1,181 @@
-(async () => {
+﻿/* ================================================================
+   TeaKadai – GravityNull  |  script.js  (revamped 2026)
+   ================================================================ */
 
-    if ("serviceWorker" in navigator) {
-
-        // we register our service worker                             						
-        const registration = await navigator.serviceWorker.register('/offline.js');
-
-        // when our service worker is updated
-        registration.onupdatefound = () => {
-
-            // when our service worker is updated
-            registration.installing.onstatechange = function () {
-                console.log(`Service worker... ${this.state}`);
-            };
+/* ---------- Service Worker Registration ---------- */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/offline.js')
+      .then(reg => {
+        reg.onupdatefound = () => {
+          reg.installing.onstatechange = function () {
+            console.log('[SW] state:', this.state);
+          };
         };
+      })
+      .catch(err => console.warn('[SW] registration failed:', err));
+  });
+}
 
-    }
+/* ---------- Dark Mode Toggle ---------- */
+const DARK_KEY = 'tk-theme';
 
-})()
-.catch(e => console.log(`:) : ${e}`));
+function applyTheme(dark) {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  const btn  = document.getElementById('myBtn');
+  const icon = document.getElementById('darkModeIcon');
+  if (btn)  btn.setAttribute('aria-pressed', String(dark));
+  if (icon) icon.textContent = dark ? 'light_mode' : 'dark_mode';
+}
 
+function toggleDarkMode() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const next = !isDark;
+  applyTheme(next);
+  try { localStorage.setItem(DARK_KEY, next ? 'dark' : 'light'); } catch (_) {}
+}
 
+// Restore saved preference (or honour OS preference)
+(function () {
+  let saved;
+  try { saved = localStorage.getItem(DARK_KEY); } catch (_) {}
+  if (saved) {
+    applyTheme(saved === 'dark');
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    applyTheme(true);
+  }
+})();
 
+/* ---------- PWA Install Prompt ---------- */
 let deferredPrompt = null;
 
-const triggerAskToInstall = async () => {
-
-    console.log('Ask to install ! ');
-
-    if (deferredPrompt === null) {
-        return false;
-    }
-
-    // The user has had a positive interaction with our app and Chrome
-    // has tried to prompt previously, so let's show the prompt.
-    deferredPrompt.prompt().catch(console.log);
-
-    // Follow what the user has done with the prompt.
-    const choiceResult = await deferredPrompt.userChoice.catch(console.log);
-
-    // We no longer need the prompt.  Clear it up.
-    deferredPrompt = null;
-
-    return choiceResult.outcome
-
-};
-
-
-window.addEventListener('beforeinstallprompt', function (e) {
-  
-    if(deferredPrompt) {
-      return false;
-    }
-
-    console.log('[PWA] beforeinstallprompt Event fired and stashed');
-
-    e.preventDefault();
-
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-
-    if (deferredPrompt) {
-        readyToInstall();
-    }
-
+window.addEventListener('beforeinstallprompt', e => {
+  if (deferredPrompt) return;
+  e.preventDefault();
+  deferredPrompt = e;
+  console.log('[PWA] Install prompt captured');
+  showInstallButton();
 });
 
-
-
-const readyToInstall = () => {
-
-    const $pwaInstall = document.querySelector('#pwa-install');
-
-    $pwaInstall.classList.remove('hidden');
-
-    $pwaInstall.addEventListener('click', async function (e) {
-
-        const userChoice = await triggerAskToInstall();
-
-        if (userChoice === 'dismissed') {
-            console.log('User cancelled home screen install');
-        } else {
-            console.log('User added to home screen');
-        }
-
-    });
-
-
-};
-
-performance.mark('form-loaded');
-
-
-
-
-
-  
-// Live TV open close js  
- var acc = document.getElementsByClassName("chat");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
+function showInstallButton() {
+  const btn = document.querySelector('#pwa-install');
+  if (!btn) return;
+  btn.classList.remove('hidden');
+  btn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log('[PWA] User choice:', outcome);
+    deferredPrompt = null;
   });
-} 
-
-
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {
-scrollFunction()
-};
-function scrollFunction() {
-if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-document.getElementById("myBtn").style.display = "block";
-}
-else {
-document.getElementById("myBtn").style.display = "none";
-}
 }
 
+/* ---------- Scroll: progress bar + back-to-top visibility ---------- */
+window.addEventListener('scroll', onScroll, { passive: true });
 
+function onScroll() {
+  // Progress bar
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const bar = document.getElementById('myBar');
+  if (bar && height > 0) bar.style.width = ((winScroll / height) * 100) + '%';
 
-// When the user clicks on the button, scroll to the top of the document
+  // Home button visibility (show when scrolled > 20px)
+  const homeBtn = document.getElementById('myBtn');
+  if (homeBtn) homeBtn.style.display = winScroll > 20 ? 'flex' : 'none';
+}
+
+/* ---------- Scroll to top ---------- */
 function topFunction() {
-
-  
-  
-document.body.scrollTop = 0;
-document.documentElement.scrollTop = 0;
-  
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+/* ---------- Snackbar / Toast ---------- */
 var x = document.getElementById("snackbar");
   x.className = "show";
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);  
 }
 
-
-
-
+/* ---------- Tab Navigation ---------- */
 function openPage(pageName, elmnt, color) {
-var i, tabcontent, tablinks;
-tabcontent = document.getElementsByClassName("tabcontent");
-for (i = 0; i < tabcontent.length; i++) {
-tabcontent[i].style.display = "";
-}
-tablinks = document.getElementsByClassName("tablink");
-for (i = 0; i < tablinks.length; i++) {
-tablinks[i].style.backgroundColor = "";
-}
-document.getElementById(pageName).style.display = "block";
-elmnt.style.backgroundColor = color;
+  const tabs = document.getElementsByClassName('tabcontent');
+  for (let i = 0; i < tabs.length; i++) tabs[i].style.display = 'none';
+
+  const links = document.getElementsByClassName('tablink');
+  for (let i = 0; i < links.length; i++) links[i].style.backgroundColor = '';
+
+  const page = document.getElementById(pageName);
+  if (page) page.style.display = 'block';
+  if (elmnt) elmnt.style.backgroundColor = color;
 }
 
+// Open default tab
+document.addEventListener('DOMContentLoaded', () => {
+  const def = document.getElementById('defaultOpen');
+  if (def) def.click();
+});
 
-
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-
-
-
-// When the user scrolls the page, execute myFunction 
-window.onscroll = function() {
-myFunction()
-};
-function myFunction() {
-var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-var scrolled = (winScroll / height) * 100;
-document.getElementById("myBar").style.width = scrolled + "%";
-}
-
-
+/* ---------- Side Navigation ---------- */
 function openNav() {
-document.getElementById("mySidenav").style.width = "355px";
+  const nav = document.getElementById('mySidenav');
+  if (nav) nav.style.width = '355px';
 }
 function closeNav() {
-document.getElementById("mySidenav").style.width = "0%";
-}
-window.addEventListener('beforeinstallprompt', (e) => {
-  
-  
-  
-// Prevent Chrome 67 and earlier from automatically showing the prompt
-e.preventDefault();
-  
-  
-  
-// Stash the event so it can be triggered later.
-deferredPrompt = e;
-  
-  
-}
-);
-
-    
-
-
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-acc[i].addEventListener("click", function() {
-this.classList.toggle("inactive");
-var panel = this.nextElementSibling;
-if (panel.style.maxHeight){
-panel.style.maxHeight = null;
-} else {
-panel.style.maxHeight = panel.scrollHeight + "px";
-} 
-});
+  const nav = document.getElementById('mySidenav');
+  if (nav) nav.style.width = '0';
 }
 
-var tday=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-var tmonth=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+/* ---------- Info Panel Toggle ---------- */
+(function () {
+  const chatBtns = document.getElementsByClassName('chat');
+  for (let i = 0; i < chatBtns.length; i++) {
+    chatBtns[i].addEventListener('click', function () {
+      const panel = this.nextElementSibling;
+      if (!panel) return;
+      const isOpen = panel.style.display === 'block';
+      panel.style.display = isOpen ? 'none' : 'block';
+      this.setAttribute('aria-expanded', String(!isOpen));
+    });
+  }
+})();
 
-function GetClock(){
-var d=new Date();
-var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
-var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+/* ---------- Ribbon / Accordion ---------- */
+(function () {
+  const accordions = document.getElementsByClassName('accordion');
+  for (let i = 0; i < accordions.length; i++) {
+    accordions[i].addEventListener('click', function () {
+      const panel = this.nextElementSibling;
+      if (!panel) return;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+        this.setAttribute('aria-expanded', 'false');
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+})();
 
-if(nhour==0){ap=" AM";nhour=12;}
-else if(nhour<12){ap=" AM";}
-else if(nhour==12){ap=" PM";}
-else if(nhour>12){ap=" PM";nhour-=12;}
+/* ---------- Live Clock ---------- */
+const DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-if(nmin<=9) nmin="0"+nmin;
-if(nsec<=9) nsec="0"+nsec;
+function updateClock() {
+  const d = new Date();
+  let h = d.getHours();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  const m = String(d.getMinutes()).padStart(2, '0');
+  const s = String(d.getSeconds()).padStart(2, '0');
+  const text = `${h}:${m}:${s} ${ampm}  ${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
 
-var clocktext=" "+nhour+":"+nmin+":"+nsec+ap+" "+tmonth[nmonth]+" "+ndate+", "+nyear+" ";
-document.getElementById('clockbox').innerHTML=clocktext;
+  // Update both clock display elements
+  ['clockbox', 'clockDisplay'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  });
 }
 
-GetClock();
-setInterval(GetClock,1000);
-
-
-
-var version = "v2.0.2";
-var swPath;
-var urlObject = new URL(location);
-var host;
-if (urlObject.searchParams.get("swPath")) {
-    swPath = urlObject.searchParams.get("swPath");
-}
-else {
-    if (urlObject.searchParams.get("version")) {
-        version = urlObject.searchParams.get("version");
-    }
-    if (urlObject.searchParams.get("swJSHost")) {
-        host = "https://" + urlObject.searchParams.get("swJSHost");
-    }
-
-
-
-
-    else {
-        host = "https://sdki.truepush.com/sdk/";
-    }
-    swPath = host + version + "/sw.js";
-}
-importScripts(swPath);
-
-
-
-
-
+updateClock();
+setInterval(updateClock, 1000);

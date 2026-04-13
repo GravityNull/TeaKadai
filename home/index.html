@@ -1,4 +1,5 @@
-<html ⚡>
+﻿<!DOCTYPE html>
+<html lang="en">
 <html lang="en">
   
 
@@ -139,19 +140,7 @@
 <div id="snackbar">
 <a href="#" onclick="window.location.reload(true);" class="white">
 
-<script type="text/javascript">
-var todayDate=new Date();
-var hours=todayDate.getHours();
-var minutes=todayDate.getMinutes();
-var seconds=todayDate.getSeconds();
-var format ="AM";
-if(hours>11)
-{format="PM";}
-if (hours   > 12) { hours = hours - 12; }
-if (hours   == 0) { hours = 12; }  
-if (minutes < 10){ minutes = "0" + minutes;}
-document.write("This page was loaded at - " + hours + ":" + minutes + ":" + seconds + " " +format);
-</script>
+<span id="clockbox"></span>
 
 </a>
 </div> 
@@ -323,16 +312,16 @@ document.write("This page was loaded at - " + hours + ":" + minutes + ":" + seco
 <button class="power">
   
 <a href="/#gsc.tab=0&gsc.q=தேர்தல்%20&gsc.sort=date" target="_top">
-<lable class="green"><b> #தேர்தல்   </b></lable></a>   
+<span class="green"><b> #தேர்தல்   </b></span></a>   
   
 <a href="/#gsc.tab=0&gsc.q=கொரோனா%20&gsc.sort=date" target="_top">
-<lable class="red"><b> #கொரோனா   </b></lable></a>   
+<span class="red"><b> #கொரோனா   </b></span></a>   
   
 <a href="/#.htmlgsc.tab=0&gsc.q=இன்று%20&gsc.sort=date">
-<lable class="yellow"><b> #இன்று  </b></lable></a>
+<span class="yellow"><b> #இன்று  </b></span></a>
    
 <a href="/#gsc.tab=0&gsc.q=%E0%AE%A4%E0%AE%AE%E0%AE%BF%E0%AE%B4%E0%AE%95%E0%AE%AE%E0%AF%8D%20&gsc.sort=date">
-<lable class="purple"><b> #தமிழகம் </b></lable></a>
+<span class="purple"><b> #தமிழகம் </b></span></a>
   
   
 
@@ -341,9 +330,9 @@ document.write("This page was loaded at - " + hours + ":" + minutes + ":" + seco
 </button>  
 
   
-<lable class="clock"><b> 
+<span class="clock"><b> 
 <div id="clockbox"></div>
-</b></lable>
+</b></span>
   
                                                          
 <button class="chat">
@@ -375,9 +364,9 @@ Click the i button again to close this popup
 <center>
   
 <a href="/about.html" target="_top">
-<lable class="green"><b> About this App  </b></lable></a>
+<span class="green"><b> About this App  </b></span></a>
 <a href="https://fb.com/roobenk" target="_blank">
-<lable class="blue"><b> Contact Dev.  </b></lable></a>
+<span class="blue"><b> Contact Dev.  </b></span></a>
   
 <!-- AddToAny END -->
 </center>
@@ -424,14 +413,14 @@ Click the i button again to close this popup
 <br><br><br><br>
   
 This WebApp is optimized only for Mobile, 
-Kindly switch to <lable class="blue"><b> Desktop version  </b></lable> 
+Kindly switch to <span class="blue"><b> Desktop version  </b></span> 
 <br><br>
 or
 <br><br>
 Resize the browser window into mobile responsive. 
 <br><br><br><br>
 <a href="https://gravitynull.in/election">
-Switch to <lable class="red"><b> election mode   </b></lable> to watch all the politicians & IT wing's tweets.</a>    
+Switch to <span class="red"><b> election mode   </b></span> to watch all the politicians & IT wing's tweets.</a>    
   
   
 </p12>
@@ -464,7 +453,7 @@ s.parentNode.insertBefore(gcse, s);
   
 <center>
 <a href="/election">
-Switch to <lable class="red"><b> election mode   </b></lable> to watch all the politicians & IT wing's tweets.</a>    
+Switch to <span class="red"><b> election mode   </b></span> to watch all the politicians & IT wing's tweets.</a>    
 
 
 
@@ -579,3 +568,6 @@ text-align: center;
     
 </body>   
 </html>
+
+
+
