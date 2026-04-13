@@ -162,7 +162,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Fixed Top-Right Home Button ---------- */
 #myBtn {
   position: fixed;
-  top: 0; right: 0;
+  top: 0; right: 42px;
   z-index: 1000;
   width: 42px;
   height: var(--header-h);
@@ -182,7 +182,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Fixed Top Search Button ---------- */
 #ptBtn {
   position: fixed;
-  top: 0; right: 0;
+  top: 0; right: 35px;
   width: 42px;
   height: var(--header-h);
   z-index: 1000;
