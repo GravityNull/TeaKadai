@@ -1,25 +1,62 @@
-﻿{
+{
   "name": "Tamil Flash News & Updates",
   "short_name": "TeaKadai",
   "lang": "en-US",
-  "description": "Tamil flash news updates",
+  "description": "Tamil flash news updates – 100% ads-free",
   "start_url": "/?utm_source=a2hs",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "background_color": "#1a1a1a",
   "theme_color": "#000000",
+  "categories": ["news", "entertainment"],
   "icons": [
     {
-      "src": "https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2Ftk%20bold.png?v=1559654363815",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "https://cdn.glitch.com/e68e9bfc-04e8-4acb-91fc-4381e1c60480%2Ftk%20bold.png?v=1559654363815",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tamil News",
+      "url": "/?utm_source=shortcut&gsc.tab=0&gsc.q=tamilnadu&gsc.sort=date",
+      "description": "Latest Tamil news",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Tech News",
+      "url": "/?utm_source=shortcut&gsc.tab=0&gsc.q=tech&gsc.sort=date",
+      "description": "Latest tech news",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://raw.githubusercontent.com/GravityNull/blog/refs/heads/master/assets/img/uploads/teakadai.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "TeaKadai home screen"
     }
   ]
 }
