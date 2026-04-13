@@ -303,12 +303,12 @@ button { font-family: inherit; cursor: pointer; }
   left: 0;
   width: 100%;
   height: 30px;
-  background: rgba(0,0,0,.08);
+  background: rgba(246, 250, 26, 0.08);
   z-index: 998;
 }
 .progress-bar {
-  height: 3px;
-  background: var(--color-accent);
+  height: 6px;
+  background: rgb(255, 255, 28);
   width: 0%;
   transition: width .1s linear;
 }
