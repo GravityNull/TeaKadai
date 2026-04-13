@@ -91,9 +91,11 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 /* ---------- Snackbar / Toast ---------- */
-var x = document.getElementById("snackbar");
+function showSnackbar() {
+  var x = document.getElementById("snackbar");
+  if (!x) return;
   x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);  
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
 }
 
 /* ---------- Tab Navigation ---------- */
