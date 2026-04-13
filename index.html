@@ -8,8 +8,6 @@
   <meta name="google" content="notranslate">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
   <!-- Open Graph -->
   <meta property="og:url"         content="https://www.gravitynull.in/">
   <meta property="og:type"        content="website">
@@ -23,8 +21,14 @@
 
   <link rel="canonical" href="https://www.gravitynull.in/">
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon"         href="https://raw.githubusercontent.com/GravityNull/blog/refs/heads/master/assets/img/uploads/Gravitynull.png">
-  <link rel="shortcut icon" href="https://raw.githubusercontent.com/GravityNull/blog/refs/heads/master/assets/img/uploads/Gravitynull.png">
+  <link rel="icon"          href="/icons/icon-192x192.png">
+  <link rel="shortcut icon" href="/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png">
+  <meta name="apple-mobile-web-app-title" content="TeaKadai">
+  <!-- iOS splash screens -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- Google Fonts: preconnect first for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -191,7 +195,12 @@
 
     <!-- PWA install prompt -->
     <div style="text-align:center; margin-bottom:8px;">
-      <pwa-install>Install our app – just 1 MB &amp; 100% ads&#8209;free</pwa-install>
+      <button id="pwa-install" class="hidden" aria-label="Install TeaKadai app"
+              style="display:none; align-items:center; gap:8px; margin:0 auto;
+                     padding:8px 18px; background:#354be8; color:#fff; border:none;
+                     border-radius:24px; font-size:14px; font-weight:600; cursor:pointer;">
+        📲 Install App – 1 MB &amp; 100% ads&#8209;free
+      </button>
     </div>
 
     <!-- Trending topic links -->
@@ -229,9 +238,6 @@
     })();
   </script>
 
-  <!-- PWA install element -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall@latest/dist/pwa-install.min.js"></script>
-
   <!-- AddToAny copy-link widget -->
   <div class="a2a_kit a2a_kit_size_20 a2a_floating_style a2a_vertical_style" style="left:-1px;bottom:130px;">
     <a class="a2a_button_copy_link"></a>
@@ -239,7 +245,6 @@
 
   <!-- Main app script -->
   <script src="/script.js" defer></script>
-  <script src="/service-worker.js" defer></script>
 
 </body>
 </html>

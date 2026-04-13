@@ -8,7 +8,13 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/offline.js')
       .then(reg => {
         reg.onupdatefound = () => {
-          reg.installing.onstatechange = function () {
+          const sw = reg.installing;
+          if (!sw) return;
+          sw.onstatechange = function () {
+            if (this.state === 'installed' && navigator.serviceWorker.controller) {
+              // New SW available – send skip-waiting message
+              sw.postMessage({ type: 'SKIP_WAITING' });
+            }
             console.log('[SW] state:', this.state);
           };
         };
@@ -50,24 +56,31 @@ function toggleDarkMode() {
 let deferredPrompt = null;
 
 window.addEventListener('beforeinstallprompt', e => {
-  if (deferredPrompt) return;
   e.preventDefault();
   deferredPrompt = e;
   console.log('[PWA] Install prompt captured');
   showInstallButton();
 });
 
+window.addEventListener('appinstalled', () => {
+  console.log('[PWA] App installed');
+  deferredPrompt = null;
+  const btn = document.querySelector('#pwa-install');
+  if (btn) btn.style.display = 'none';
+});
+
 function showInstallButton() {
   const btn = document.querySelector('#pwa-install');
-  if (!btn) return;
-  btn.classList.remove('hidden');
+  if (!btn || deferredPrompt === null) return;
+  btn.style.display = 'flex';
   btn.addEventListener('click', async () => {
     if (!deferredPrompt) return;
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     console.log('[PWA] User choice:', outcome);
     deferredPrompt = null;
-  });
+    btn.style.display = 'none';
+  }, { once: true });
 }
 
 /* ---------- Scroll: progress bar + back-to-top visibility ---------- */
