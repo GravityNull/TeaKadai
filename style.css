@@ -182,7 +182,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Fixed Top Search Button ---------- */
 #ptBtn {
   position: fixed;
-  top: 0; right: 35px;
+  top: 0; right: 42px;
   width: 42px;
   height: var(--header-h);
   z-index: 1000;
