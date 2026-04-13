@@ -77,13 +77,13 @@
 [data-theme="dark"] .gsc-above-wrapper-area,
 [data-theme="dark"] .gsc-webResult.gsc-result,
 [data-theme="dark"] .gsc-results .gsc-imageResult {
-  background-color: #1e1e1e !important;
-  border-color: #333 !important;
+  background-color: #000000 !important;
+  border-color: #000000 !important;
 }
 [data-theme="dark"] .gsc-result:hover,
 [data-theme="dark"] .gsc-webResult.gsc-result:hover {
-  background-color: #2a2a2a !important;
-  border-color: #444 !important;
+  background-color: #000000 !important;
+  border-color: #000000 !important;
 }
 /* Result title link */
 [data-theme="dark"] .gs-title,
@@ -114,16 +114,16 @@
 [data-theme="dark"] .gsc-search-button button,
 [data-theme="dark"] .gsc-search-button-v2 {
   background-color: #000000 !important;
-  border-color: #fa4c07 !important;
+  border-color: #000000 !important;
 }
 /* Pagination */
 [data-theme="dark"] .gsc-cursor-box .gsc-cursor-page {
-  color: #ffffff !important;
+  color: #000000 !important;
   background-color: #000000 !important;
-  border-color: #ffffff !important;
+  border-color: #0f0f0f !important;
 }
 [data-theme="dark"] .gsc-cursor-box .gsc-cursor-current-page {
-  color: #e8e8e8 !important;
+  color: #000000 !important;
   background-color: #000000 !important;
 }
 /* Sort / filter bar */
@@ -132,17 +132,17 @@
 [data-theme="dark"] .gsc-tabHeader {
   background-color: #ffffff !important;
   color: #000000 !important;
-  border-color: #000000 !important;
+  border-color: #fffdfd !important;
 }
 [data-theme="dark"] .gsc-tabHeader.gsc-tabhActive {
-  border-bottom-color: #ffffff !important;
-  color: #f3eeee !important;
+  border-bottom-color: #000000 !important;
+  color: #000000 !important;
 }
 /* "No results" / status messages */
 [data-theme="dark"] .gs-no-results-result .gs-snippet,
 [data-theme="dark"] .gs-error-result .gs-snippet {
   background-color: #2a2a2a !important;
-  color: #0f0f0f !important;
+  color: #ffffff !important;
   border-color: #444 !important;
 }
 
@@ -237,7 +237,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Fixed Top-Right Home Button ---------- */
 #myBtn {
   position: fixed;
-  top: 0; right: 0;
+  top: 0; right: 42px;
   z-index: 1000;
   width: 42px;
   height: var(--header-h);
@@ -277,7 +277,7 @@ button { font-family: inherit; cursor: pointer; }
 .logo {
   position: fixed;
   top: 0;
-  left: 75px;
+  left: 0px;
   right: 0px;
   height: var(--header-h);
   z-index: 999;
@@ -422,7 +422,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Ribbon / Accordion ---------- */
 .ribbon {
   position: absolute;
-  top: calc(var(--header-h) + 8px);
+  top: calc(var(--header-h) + 1px);
   left: 50%;
   transform: translateX(-50%);
   width: min(300px, calc(100vw - 32px));
