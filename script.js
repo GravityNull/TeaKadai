@@ -71,7 +71,7 @@ window.addEventListener('appinstalled', () => {
 
 function showInstallButton() {
   const btn = document.querySelector('#pwa-install');
-  if (!btn || deferredPrompt === null) return;
+  if (!btn || !deferredPrompt) return;
   btn.style.display = 'flex';
   btn.addEventListener('click', async () => {
     if (!deferredPrompt) return;
