@@ -162,7 +162,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Fixed Top-Right Home Button ---------- */
 #myBtn {
   position: fixed;
-  top: 0; right: 42px;
+  top: 0; right: 0;
   z-index: 1000;
   width: 42px;
   height: var(--header-h);
@@ -182,7 +182,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Fixed Top Search Button ---------- */
 #ptBtn {
   position: fixed;
-  top: 0; right: 42px;
+  top: 0; right: 0;
   width: 42px;
   height: var(--header-h);
   z-index: 1000;
@@ -203,7 +203,7 @@ button { font-family: inherit; cursor: pointer; }
   position: fixed;
   top: 0;
   left: 75px;
-  right: 84px;
+  right: 0px;
   height: var(--header-h);
   z-index: 999;
   display: flex;
@@ -227,7 +227,7 @@ button { font-family: inherit; cursor: pointer; }
   top: var(--header-h);
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 30px;
   background: rgba(0,0,0,.08);
   z-index: 998;
 }
@@ -418,10 +418,10 @@ button { font-family: inherit; cursor: pointer; }
   background: linear-gradient(to right, var(--color-danger), var(--color-danger-d));
   color: #fff;
   position: fixed;
-  bottom: 98px;
+  bottom: 10px;
   right: 12px;
   width: 125px;
-  padding: 3px 6px;
+  padding: 3px 9px;
   text-align: center;
   font-size: 9px;
   border-radius: var(--radius-sm);
@@ -436,7 +436,7 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--color-bg);
   color: var(--color-danger);
   position: fixed;
-  bottom: 60px;
+  bottom: 98px;
   right: 0;
   width: 44px;
   height: 44px;
