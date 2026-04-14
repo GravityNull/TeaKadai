@@ -148,7 +148,7 @@
 
 /* Smooth theme transition */
 body, .header, .logo, .tablink, .power, .sidenav, .alert, .chatpanel, #myBtn, #ptBtn, #myBtnn {
-  transition: background-color .25s ease, color .25s ease, box-shadow .25s ease;
+  transition: background-color 1.25s ease, color .25s ease, box-shadow .25s ease;
 }
 
 /* ---------- Reset & Base ---------- */
@@ -360,7 +360,7 @@ button { font-family: inherit; cursor: pointer; }
   display: none;
   padding: 0;
   text-align: left;
-  animation: fadeIn .3s ease;
+  animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
@@ -389,7 +389,7 @@ button { font-family: inherit; cursor: pointer; }
   top: 0; left: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  transition: width .25s ease;
+  transition: width .75s ease;
   z-index: 10000;
 }
 .sidenav .closebtn1 {
@@ -399,12 +399,12 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   background: transparent;
   border: none;
   color: var(--color-danger);
-  font-size: 42px;
+  font-size: 64px;
   cursor: pointer;
   border-radius: var(--radius-sm);
   z-index: 1;
@@ -471,7 +471,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Quick Tags Bar (bottom, above footer) ---------- */
 .power {
   position: fixed;
-  bottom: 56px;
+  bottom: 53px;
   left: 0;
   width: 100%;
   padding: 5px 8px;
@@ -493,7 +493,7 @@ button { font-family: inherit; cursor: pointer; }
   background: linear-gradient(to right, var(--color-danger), var(--color-danger-d));
   color: #fff;
   position: fixed;
-  bottom: 10px;
+  bottom: 84px;
   right: 12px;
   width: 125px;
   padding: 3px 9px;
